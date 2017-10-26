@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The handle of popover</title>
+    <style>
+       *{
+             margin: 0;
+             padding:0;
+        }
+        #article{
+            line-height: 2em;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        h1,h2{
+            padding:10px 0;
+        }
+        #popover{
+            position: fixed;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+            width: 400px;
+            height: 250px;
+            margin:0 auto;
+            background-color: gainsboro;
+            text-align: center;
+        }
+        #title{
+            height: 40px;
+            background-color: dimgrey;
+            padding-top: 20px;
+            font-size: 1.5em;
+        }
+        button{
+            background-color: cadetblue;
+            width:80px;
+            height: 30px;
+            cursor: pointer;
+        }
+        #pop-dis{
+            padding-bottom: 40px;
+            line-height: 20px;
+            font-weight:bold;
+        }
+        #pop-button{
+            margin-top: 120px;
+        }
+        #yes{
+            margin-right: 80px;
+        }
+        #contentMask{
+            position: absolute;
+            width:100%;
+            height: 1500px;
+            background-color: dimgrey;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="contentMask" style="display: none;"></div>
+    <div id="article">
+        <h1>老舍（1899年2月3日—1966年8月24日）</h1>
+        <p>原名舒庆春，另有笔名絜青、鸿来、非我等，字舍予。因为老舍生于阴历立春，父母为他取名“庆春”，大概含有庆贺春来、前景美好之意。上学后，自己更名为舒舍予，含有“舍弃自我”，亦即“忘我”的意思。北京满族正红旗人。[1]  中国现代小说家、作家，语言大师、人民艺术家，新中国第一位获得“人民艺术家”称号的作家。代表作有《骆驼祥子》、《四世同堂》、剧本《茶馆》。
+            老舍的一生，总是忘我地工作，他是文艺界当之无愧的“劳动模范”。1966年，由于受到文化大革命运动中恶毒的攻击和迫害，老舍被逼无奈之下含冤自沉于北京太平湖。[2]  2017年9月，中国现代文学长篇小说经典《四世同堂》由东方出版中心出版上市。这是该作自发表以来第一次以完整版形式出版[3]  。</p>
+        <h2>个人经历</h2>
+        <p>1899年老舍生于北京。父亲是一名满族的护军，阵亡在八国联军攻打北京城的战争中。全家靠母亲替人洗衣裳做活计维持生活。<br/>
+            1908年老舍九岁，得人资助始入私塾。<br/>
+            1913年，考入京师第三中学（现北京三中），数月后因经济困难退学，同年考取公费的北京师范学校。<br/>
+            1918年毕业，被派任到方家胡同小学当校长。两年之后，晋升为京师教育局北郊劝学员，但是由于很难和教育界及地方上的旧势力共事，很快便主动辞去了这份待遇优厚的职务，重新回到学校教书。<br/>
+            1921年，在《海外新声》上发表《她的失败》的白话小小说，署名舍予，这是迄今为止发现的老舍的最早的一篇作品，仅有700字。[4]<br/>
+            1922年，受礼加入基督教，后在天津南开中学教国文，并在北京教育会、北京地方服务团工作。在此期间，他热衷于社会服务事业，同时还在英文夜校和燕京大学补习英文。[5]<br/>
+            1923年，在《南开季刊》发表第一篇短篇小说《小铃儿》。[2]<br/>
+            1924年，赴英国，任伦敦大学亚非学院（School of Oriental and African Studies, University of London）讲师。在英国期间，老舍曾使用Colin C. Shu这个英文名字（应为其基督教教名）。[6]<br/>
+            1926年，在《小说月报》上连载长篇小说《老张的哲学》，第1期署名“舒庆春”，第2期起改“老舍”。此后三年继续创作，在英国共创作发表了长篇小说三部《老张的哲学》、《赵子曰》、《二马》。[7]  英国的教书生涯使老舍成为一名合格的作家。<br/>
+            1929年夏，离英回国，在新加坡直流半年，任中学教员。<br/>
+            1930年，回国任齐鲁大学教授，边写作边教学。<br/>
+            1931年，与胡絜青女士结婚，同年发表长篇《小坡的生日》。<br/>
+            1932年，创作《猫城记》，并在《现代》杂志连载。此后几年，老舍陆续创作了《离婚》和《月牙儿》等在现代文学史上具有重要地位的作品。<br/>
+            1934年，任山东大学文学系教授。<br/>
+            1936年，老舍辞去山东大学教授一职专心从事写作。9月，《骆驼祥子》在《宇宙风》连载，1939年该书由人间书屋正式发行。[2]<br/>
+            1937年，8月返齐鲁大学任教。11月只身奔赴武汉。<br/>
+            1938年，老舍被选为中华全国文艺界抗敌协会常务理事兼总务部主任，对内主持日常会务，对外代表“文协”，并全面负责总会的领导工作。同年7月，随文协西迁重庆。<br/>
+            1939年，老舍翻译完成的英文版《金瓶梅》在伦敦出版，译名为The Golden Lotus，此版是为西方比较权威的《金瓶梅》译本，先后发行四次。[7]<br/>
+            1944年，创作并由良友复兴印刷公司出版《四世同堂》第一卷《惶惑》。<br/>
+            1946年，受美国国务院邀请赴美讲学一年，同年出版《四世同堂》第二卷《偷生》。<br/>
+            1949年，接文艺界三十余位友人信后决定回国，10月离美，12月抵达天津。<br/>
+            1950年，中国民间文学研究会成立，任副理事长。<br/>
+            1951年，被北京市人民政府授予“人民艺术家”的称号。<br/>
+            1953年，当选为全国文联主席，作协副主席。<br/>
+            1957年，《茶馆》发表于《收获》第一期。<br/>
+            1966年，文革中不忍屈辱，自沉于北京太平湖。[2]<br/>
+            1968年，获诺贝尔文学奖提名，且获投票第一，由于老舍已不在人世，此次诺奖遗憾颁予川端康成。<br/>
+            1978年，老舍得到平反，恢复“人民艺术家”的称号[8]  。墓碑上刻写着老舍的一句话：“文艺界尽责的小卒，睡在这里。”<br/>
+        </p>
+        <button id="popoverButton">了解代表作</button>
+        <h2>婚姻家庭</h2>
+        <p>1930年，胡絜青正在北京师范大学念书，母亲怕她因为这学业而耽误了终身大事。语言学家罗常培先生是胡絜青兄弟的朋友，有一回，他到胡家去玩，胡母托他帮忙物色。此时老舍正好从伦敦回国，且著有作品，于是罗常培便向胡母介绍了老舍，获知老舍的才华及人品后，胡母异常高兴，私下便定下了这位乘龙快婿，于是与罗一同商议了一个周密的计划使老舍与胡絜青见面。
+            1930年冬天，老舍回到北平。在罗的安排之下，老舍到处被朋友们拉去吃饭，而饭桌上总有胡絜青。在频繁的相见之后，胡与舒产生了情愫。直到1931年夏天，胡絜青毕业，两人举行了婚礼。
+            婚后半个月，老舍携带妻子来到济南，继续在大学任教，胡絜青则在一家中学里教书。两人第一个孩子出生在济南，是个女孩，取名舒济。1935年第二个孩子，儿子舒乙出生，1937年，在重庆产下第三个孩子，次女舒立。</p>
+    </div>
+    <div id="popover" style="display: none">
+        <div id="title">
+            <div id="pop-dis" >代表作</div>《骆驼祥子》《四世同堂》《茶馆》
+        </div>
+        <div id="pop-button">
+            <button id="yes">确定</button>
+            <button id="no">取消</button>
+        </div>
+    </div>
+</div>
+<script>
+    //获取数据
+    var mask=document.getElementById('contentMask');
+    var pop=document.getElementById('popover');
+    var popBtn=document.getElementById('popoverButton');
+    var sure=document.getElementById('yes');
+    var cancel=document.getElementById('no');
+    //事件委托
+    popBtn.addEventListener('click',function(){
+        popAppear();
+    });
+    popDisappear();
+    //浮层函数
+    function popAppear(){
+        pop.style.display='block';
+        mask.style.display='block';
+    }
+    //浮层消失
+    function popDisappear(){
+        mask.onclick=function(){
+            pop.style.display='none';
+            mask.style.display='none';
+        };
+        sure.onclick=function(){
+            pop.style.display='none';
+            mask.style.display='none';
+        };
+        cancel.onclick=function(){
+            pop.style.display='none';
+            mask.style.display='none';
+        };
+    }
+</script>
+</body>
+</html>
