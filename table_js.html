@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Building table by javascript</title>
+</head>
+<body>
+<script>
+    //申明变量
+    var Body=document.getElementsByTagName('body');
+    var Table=document.createElement('table');
+    Body.appendChild(Table);
+    var title=["姓名","语文","数学","英语","总分"];
+    var data=[["小明",80,90,70,240],
+        ["小红",90,60,90,240],
+        ["小亮",60,100,70,230]	];
+    //新建表头
+    function addThead(){
+        var tHead=document.createElement('th');
+        var trNode=addTr();
+
+        tHead.appendChild(trNode);
+        Table.appendChild(tHead);
+    }
+    //新建表身
+    //添加tr
+    function addTr(){
+        return document.createElement('tr');
+    }
+    //添加td
+    //up排序
+    //down排序
+</script>
+</body>
+</html>
