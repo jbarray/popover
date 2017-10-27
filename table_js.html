@@ -4,12 +4,44 @@
     <meta charset="UTF-8">
     <title>Building table by javascript</title>
     <style>
-        table{
-            border: 1px solid red;
-            border-collapse:collapse;
+        #tab {
+            border-collapse: collapse;
+            border: 1px solid #fff;
+            margin: 30px;
         }
-        table td{
-            border: 1px solid green;
+        #tab td {
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        #tab thead {
+            background-color: #3c3c3c;
+            color: #fff;
+        }
+        .upBtn {
+            position: relative;
+            left:10px;
+            top: -7px;
+            display: inline-block;
+            width:0;
+            height:0;
+            border-bottom:10px solid #fff;     /*设置并显示上边框*/
+            border-top:none;             /*不设置下边框*/
+            border-left:10px solid transparent;     /*设置但隐藏左边框*/
+            border-right:10px solid transparent;    /*设置但隐藏右边框*/
+        }
+        .downBtn {
+            position: relative;
+            left:-9px;
+            bottom: -7px;
+            display: inline-block;
+            width:0;
+            height:0;
+            border-top:10px solid #fff;     /*设置并显示上边框*/
+            border-bottom:none;             /*不设置下边框*/
+            border-left:10px solid transparent;     /*设置但隐藏左边框*/
+            border-right:10px solid transparent;    /*设置但隐藏右边框*/
         }
     </style>
 </head>
@@ -20,28 +52,100 @@
    // var Body=document.getElementsByTagName('body');
   //  document.body.appendChild(Table);
     var Table= document.getElementById('tab');
-    var title=[["姓名"],["语文"],["数学"],["英语"],["总分"]];
-    var data=[["小明",80,90,70,240],
-        ["小红",90,60,90,240],
-        ["小亮",60,100,70,230]	];
+    var tabHeader= {
+        heads: [{
+            name: 'name',
+            label: '姓名',
+            sortable: false
+        }, {
+            name: 'chinese',
+            label: '语文',
+            sortable: true
+        }, {
+            name: 'math',
+            label: '数学',
+            sortable: true
+        }, {
+            name: 'english',
+            label: '英语',
+            sortable: true
+        }, {
+            name: 'total',
+            label: '总分',
+            sortable: true
+        }]
+    };
+  //  var title=[["姓名"],["语文"],["数学"],["英语"],["总分"]];
+    var data = [
+        {
+            name: '小明',
+            chinese: 90,
+            math: 100,
+            english: 70,
+            total: 260
+        },
+        {
+            name: '小花',
+            chinese: 90,
+            math: 70,
+            english: 80,
+            total: 240
+        },
+        {
+            name: '小红',
+            chinese: 70,
+            math: 90,
+            english: 70,
+            total: 230
+        },
+        {
+            name: '小桃',
+            chinese: 60,
+            math: 100,
+            english: 90,
+            total: 250
+        },
+        {
+            name: '小张',
+            chinese: 80,
+            math: 80,
+            english: 70,
+            total: 230
+        }
+    ];
     //新建表头
     function addThead(){
+    var tabHead = tabHeader.heads;
+
         var tHead=document.createElement('th');
         var trNode=addTr();
-        var headLen=title.length;
-        for(var i=0;i<headLen;i++){
-            var tdNode=document.createElement('td');
-            tdNode= addTd(title[i]);
-
-            if(i!==0){
+   //     var headLen=title.length;
+//        for(var i=0;i<headLen;i++){
+//            var tdNode=document.createElement('td');
+//            tdNode= addTd(title[i]);
+        tabHead.forEach(function (head) {
+            var tdNode = addTd(head.label);
+//            if(i!==0){
+            if (head.sortable) {
                 //升序
-                var up
-
+                var upBtn=document.createElement('span');
+                upBtn.className='up-button';
+                tdNode.appendChild(upBtn);
+                upBtn.onclick=function(){
+                    upSort();
+                };
+                //降序
+                var downBtn=document.createElement('span');
+                downBtn.className='up-button';
+                tdNode.appendChild(downBtn);
+                downBtn.onclick=function(){
+                    downSort();
+                };
             }
-            tHead.appendChild(tdNode);
-            console.log(tdNode);
-        }
-        trNode.appendChild(tHead);
+            trNode.appendChild(tdNode);
+  //          console.log(tdNode);
+        });
+  //      tHead.appendChild(trNode);
         Table.appendChild(trNode);
     }
     //新建表身
@@ -68,9 +172,31 @@
         return tdNode;
     }
     //up排序
+    function upSort(arr){
+        var minIndex,temp;
+        for(var i=0;i<arr.length-1;i++){
+            minIndex=i;
+            for(var j=1;j<arr.length;j++){
+                if(arr[minIndex]>arr[j]){
+                    minIndex=j;
+                }
+            }
+            temp=arr[i];
+            arr[i]=arr[minIndex];
+            arr[minIndex]=temp;
+        }
+        tdNode.innerHTML=" ";
+        init();
+    }
     //down排序
-    addThead();
-    addTBody();
+    function downSort(){
+
+    }
+    function init(){
+        addThead();
+        addTBody();
+    }
+    init();
 </script>
 </body>
 </html>
