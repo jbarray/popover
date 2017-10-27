@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Building table by javascript</title>
+    <style>
+        table{
+            border: 1px solid red;
+            border-collapse:collapse;
+        }
+        table td{
+            border: 1px solid green;
+        }
+    </style>
 </head>
 <body>
+<table id="tab"></table>
 <script>
     //申明变量
-    var Body=document.getElementsByTagName('body');
-    var Table=document.createElement('table');
-    Body.appendChild(Table);
-    var title=["姓名","语文","数学","英语","总分"];
+   // var Body=document.getElementsByTagName('body');
+  //  document.body.appendChild(Table);
+    var Table= document.getElementById('tab');
+    var title=[["姓名"],["语文"],["数学"],["英语"],["总分"]];
     var data=[["小明",80,90,70,240],
         ["小红",90,60,90,240],
         ["小亮",60,100,70,230]	];
@@ -18,21 +28,49 @@
     function addThead(){
         var tHead=document.createElement('th');
         var trNode=addTr();
-        var tdNode=addTd();
-        tHead.appendChild(trNode);
-        Table.appendChild(tHead);
+        var headLen=title.length;
+        for(var i=0;i<headLen;i++){
+            var tdNode=document.createElement('td');
+            tdNode= addTd(title[i]);
+
+            if(i!==0){
+                //升序
+                var up
+
+            }
+            tHead.appendChild(tdNode);
+            console.log(tdNode);
+        }
+        trNode.appendChild(tHead);
+        Table.appendChild(trNode);
     }
     //新建表身
+    function addTBody(){
+        var tBody=document.createElement('tbody');
+        for(var i=0;i<data.length;i++){
+            var trNode=addTr();
+            for(var key in data[i]){
+                var tdNode=addTd(data[i][key]);
+                trNode.appendChild(tdNode);
+            }
+            tBody.appendChild(trNode);
+        }
+        Table.appendChild(tBody);
+    }
     //添加tr
     function addTr(){
         return document.createElement('tr');
     }
     //添加td
-    function addTd(){
-        return document.createElement('td');
+    function addTd(value){
+        var tdNode=document.createElement('td');
+        tdNode.innerText=value;
+        return tdNode;
     }
     //up排序
     //down排序
+    addThead();
+    addTBody();
 </script>
 </body>
 </html>
