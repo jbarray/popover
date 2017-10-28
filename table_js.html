@@ -15,13 +15,13 @@
             text-align: center;
             border: 1px solid #ccc;
         }
-        #tab thead {
+        .th {
             background-color: #3c3c3c;
             color: #fff;
         }
         .upBtn {
             position: relative;
-            left:10px;
+            left:11px;
             top: -7px;
             display: inline-block;
             width:0;
@@ -119,6 +119,7 @@
 
         var tHead=document.createElement('th');
         var trNode=addTr();
+        trNode.className='th';
    //     var headLen=title.length;
 //        for(var i=0;i<headLen;i++){
 //            var tdNode=document.createElement('td');
@@ -129,17 +130,18 @@
             if (head.sortable) {
                 //升序
                 var upBtn=document.createElement('span');
-                upBtn.className='up-button';
+                var val=head.name;
+                upBtn.className='upBtn';
                 tdNode.appendChild(upBtn);
                 upBtn.onclick=function(){
-                    upSort();
+                    upSort(val);
                 };
                 //降序
                 var downBtn=document.createElement('span');
-                downBtn.className='up-button';
+                downBtn.className='downBtn';
                 tdNode.appendChild(downBtn);
                 downBtn.onclick=function(){
-                    downSort();
+                    downSort(val);
                 };
             }
             trNode.appendChild(tdNode);
@@ -172,25 +174,42 @@
         return tdNode;
     }
     //up排序
-    function upSort(arr){
-        var minIndex,temp;
-        for(var i=0;i<arr.length-1;i++){
-            minIndex=i;
-            for(var j=1;j<arr.length;j++){
-                if(arr[minIndex]>arr[j]){
-                    minIndex=j;
-                }
-            }
-            temp=arr[i];
-            arr[i]=arr[minIndex];
-            arr[minIndex]=temp;
-        }
-        tdNode.innerHTML=" ";
+//    function upSort(arr){
+//        var minIndex,temp;
+//        for(var i=0;i<arr.length-1;i++){
+//            minIndex=i;
+//            for(var j=1;j<arr.length;j++){
+//                if(arr[minIndex]>arr[j]){
+//                    minIndex=j;
+//                }
+//            }
+//            temp=arr[i];
+//            arr[i]=arr[minIndex];
+//            arr[minIndex]=temp;
+//        }
+//    }
+    function upSort(val) {
+        sort1(val);
+        Table.innerHTML = ' ';
         init();
     }
+    function sort1(val) {
+        var byScore = function (a, b) {
+            return a[val] - b[val];
+        };
+        return data.sort(byScore);
+    }
     //down排序
-    function downSort(){
-
+    function downSort(val){
+        sort2(val);
+        Table.innerHTML='';
+        init();
+    }
+    function sort2(val){
+        var byScore = function (a, b) {
+            return b[val] - a[val];
+        };
+        return data.sort(byScore);
     }
     function init(){
         addThead();
